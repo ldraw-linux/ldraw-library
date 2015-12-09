@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Run LDraw appliaction after checking/creation of $LDRAWHOME directory
+
+# This is a wrapper for all the programs that are part of the
+# linux-ldraw project.  The system LDraw library is installed in
+# /usr/share/ldraw To allow users to have their own unofficial
+# parts, a custom ldconfig.ldr or other custom files, all the
+# programs are configured to use ~/.ldraw as the LDraw library
+# path by setting the LDRAWDIR environment variable.
+#
+# If this directory does not exist, it is created and the
+# contents of the system-wide ldraw library is symlinked there.
+#
+# All the linux-ldraw packages are supposed to suffix their
+# binary name with .bin and create a symlink named with the
+# original binary name pointing to this script
+
+
+function die() {
+	ERROR="ERROR: $1"
+	if [ -t 0 ] ; then
+		echo "$ERROR" >&2
+	else
+		xmessage "$ERROR"
+	fi
+	exit 1
+}
+
+
+APPLICATION="$(which -- "${0##*/}.bin")" || die "unknown application"
+LDRAWHOME="${HOME}/.ldraw"
+LDRAWSYS="/usr/share/ldraw"
+
+function create_ldraw_dir() {
+	local LDRAWHOME="$1"
+	echo "Creating LDraw directory $LDRAWHOME ."
+	mkdir "$LDRAWHOME" || die "Cannot create ${LDRAWHOME}. You may want to set the LDRAWDIR environment variable to point to a copy of the LDraw library."
+}
+
+function fill_ldraw_dir() {
+	local LDRAWHOME="$1"
+	for d_full in "${LDRAWSYS}"/*; do
+		d="${d_full##*/}"
+		if [[ ! -e "${LDRAWHOME}/${d}" ]]; then
+			echo "Creating symlink ${LDRAWHOME}/${d} -> ${LDRAWSYS}/${d}:"
+			ln -s "${LDRAWSYS}/${d}" "${LDRAWHOME}/${d}" || die "Cannot create symlink ${LDRAWHOME}/${d} ."
+		elif  [[ ! -L "${LDRAWHOME}/${d}" ]] || [[ $(readlink "${LDRAWHOME}/${d}") != "${LDRAWSYS}/${d}" ]]; then
+			echo "Warning: $LDRAWHOME/$d is not a symlink to the system LDraw library."
+		fi
+	done
+	mkdir -p "${LDRAWHOME}/unofficial/{p,parts}"
+}
+
+
+# main()
+
+if [ -z "${LDRAWDIR}" ] ; then
+	if [ ! -d "$LDRAWHOME" ] ; then
+		if [ -e "$LDRAWHOME" ] ; then
+			die "Cannot create $LDRAWHOME directory."
+		else
+			create_ldraw_dir "$LDRAWHOME"
+		fi
+	fi
+	fill_ldraw_dir "$LDRAWHOME"
+	export LDRAWDIR="${LDRAWHOME}"
+fi
+
+exec $APPLICATION "$@"
