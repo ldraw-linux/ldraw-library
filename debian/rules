@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+DH_VERBOSE=
+
+%:
+	dh $@
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod a+x $(CURDIR)/debian/ldraw-library/usr/lib/ldraw-wrapper

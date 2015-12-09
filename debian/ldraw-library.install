@@ -1,0 +1,3 @@
+ldraw	/usr/share
+ldraw-mklist	/usr/bin
+ldraw-wrapper	/usr/lib

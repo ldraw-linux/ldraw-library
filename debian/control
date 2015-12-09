@@ -1,0 +1,13 @@
+Source: ldraw-library
+Maintainer: Milan Vancura <mvancura@suse.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>=9)
+
+Package: ldraw-library
+Architecture: all
+Description: parts library shared by LDraw applications
+ LDraw is an open standard for LEGO CAD programs that allow the user to create
+ virtual LEGO models and scenes.
+ This package contains the library of ldraw parts.
