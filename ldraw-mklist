@@ -1,0 +1,11 @@
+#!/bin/bash
+# Run this script inside the ldraw "parts" directory to generate a part list
+# to be used as parts.lst
+
+for f in *.dat; do 
+	read zero desc < $f
+	[[ $zero == 0 ]] && [[ ${desc:0:9} != "~Moved to" ]] && 
+		printf '%-26s %-s\n' "$f" "$desc" 
+done | sed 's/[\t ]*\r$/\r/' | sort -n 
+
+
