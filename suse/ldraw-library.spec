@@ -31,6 +31,7 @@ Source:		ldraw-library.tar.bz2
 BuildRequires:	unzip
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:	noarch
+__PATCHES_DECLARE__
 
 %description
 This is the parts library shared by LDraw applications.
@@ -39,7 +40,9 @@ LDraw is an open standard for LEGO CAD programs that allow the user to create
 virtual LEGO models and scenes.
 
 %prep
-%setup -q -n ldraw-library
+%setup -q
+
+__PATCHES_APPLY__
 
 %build
 unzip -LL complete.zip
