@@ -27,7 +27,7 @@ License:	CC BY 2.0
 Summary:	LDraw Parts Library
 Url:		http://www.ldraw.org
 Group:		Productivity/Graphics/CAD
-Source:		ldraw-library.tar.bz2
+Source:		ldraw-library___VERSION__.orig.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:	noarch
 __PATCHES_DECLARE__
