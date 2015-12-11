@@ -1,0 +1,25 @@
+From 8573a75d45f0161a246a09fb6cb240efaa8e1847 Mon Sep 17 00:00:00 2001
+From: Jiri Bohac <jbohac@suse.cz>
+Date: Fri, 11 Dec 2015 16:00:20 +0100
+Subject: [PATCH 1/2] special edition
+
+---
+ ldraw-library.spec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ldraw-library.spec b/ldraw-library.spec
+index 9a5839d..e81926c 100644
+--- a/ldraw-library.spec
++++ b/ldraw-library.spec
+@@ -34,7 +34,7 @@ BuildArch:	noarch
+ __PATCHES_DECLARE__
+ 
+ %description
+-This is the parts library shared by LDraw applications.
++This is the parts library shared by LDraw applications SPECIAL EDITION OS 13
+ 
+ LDraw is an open standard for LEGO CAD programs that allow the user to create
+ virtual LEGO models and scenes.
+-- 
+2.1.4
+

@@ -1,0 +1,29 @@
+From c6651ef499cc9471050c601a78a2fd72b8829070 Mon Sep 17 00:00:00 2001
+From: Jiri Bohac <jbohac@suse.cz>
+Date: Fri, 11 Dec 2015 16:02:06 +0100
+Subject: [PATCH 2/2] axle
+
+---
+ patches/axle.patch | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100644 patches/axle.patch
+
+diff --git a/patches/axle.patch b/patches/axle.patch
+new file mode 100644
+index 0000000..f33115f
+--- /dev/null
++++ b/patches/axle.patch
+@@ -0,0 +1,10 @@
++diff --git a/ldraw/p/axle.dat b/ldraw/p/axle.dat
++index de3403d..50d006a 100644
++--- a/ldraw/p/axle.dat
+++++ b/ldraw/p/axle.dat
++@@ -1,4 +1,4 @@
++-0 Axle
+++0 Axle opensuse 13 edition
++ 0 Name: axle.dat
++ 0 Author: James Jessiman
++ 0 !LDRAW_ORG Primitive UPDATE 2003-01
+-- 
+2.1.4
+
