@@ -28,7 +28,6 @@ Summary:	LDraw Parts Library
 Url:		http://www.ldraw.org
 Group:		Productivity/Graphics/CAD
 Source:		ldraw-library.tar.bz2
-BuildRequires:	unzip
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:	noarch
 __PATCHES_DECLARE__
@@ -45,7 +44,6 @@ virtual LEGO models and scenes.
 __PATCHES_APPLY__
 
 %build
-unzip -LL complete.zip
 cd ldraw/parts
 chmod a+x ../../ldraw-mklist
 sh -c ../../ldraw-mklist > ../parts.lst
