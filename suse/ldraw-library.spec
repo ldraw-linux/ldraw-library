@@ -21,13 +21,13 @@
 %endif
 
 Name:           ldraw-library
-Version:	__VERSION__
-Release:	0
+Version:	__UPSTREAM_VERSION__
+Release:	__RELEASE_VERSION__
 License:	CC BY 2.0
 Summary:	LDraw Parts Library
 Url:		http://www.ldraw.org
 Group:		Productivity/Graphics/CAD
-Source:		ldraw-library___UPSTREAM_VERSION__.orig.tar.gz
+Source:		ldraw-library_%{version}.orig.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:	noarch
 __PATCHES_DECLARE__
