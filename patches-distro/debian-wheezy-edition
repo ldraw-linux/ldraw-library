@@ -1,0 +1,13 @@
+diff --git a/debian/control b/debian/control
+index e786f2c..fc39569 100644
+--- a/control
++++ b/control
+@@ -7,7 +7,7 @@ Build-Depends: debhelper (>=9)
+ 
+ Package: ldraw-library
+ Architecture: all
+-Description: parts library shared by LDraw applications
++Description: parts library shared by LDraw applications - WHEEZY EDITION
+  LDraw is an open standard for LEGO CAD programs that allow the user to create
+  virtual LEGO models and scenes.
+  This package contains the library of ldraw parts.
