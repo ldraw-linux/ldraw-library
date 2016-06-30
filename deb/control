@@ -4,6 +4,7 @@ Section: misc
 Priority: optional
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>=9)
+Vcs-Git: https://github.com/ldraw-linux/ldraw-library.git
 
 Package: ldraw-library
 Architecture: all
