@@ -8,7 +8,5 @@ override_dh_fixperms:
 	dh_fixperms
 	chmod a+x $(CURDIR)/debian/ldraw-library/usr/lib/ldraw-wrapper
 
-override_dh_build:
-	cd ldraw/parts
-	chmod a+x ../../ldraw-mklist
-	sh -c ../../ldraw-mklist > ../parts.lst
+override_dh_auto_build:
+	{ cd ldraw/parts ; chmod a+x ../../ldraw-mklist ; ../../ldraw-mklist > ../parts.lst ; }
